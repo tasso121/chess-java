@@ -3,12 +3,12 @@ package boardgame;
 public class Board {
 	
 	private int rows;
-	private int clumns;
+	private int columns;
 	private Piece[][]pieces;
 	
-	public Board(int rows, int clumns) {
+	public Board(int rows, int columns) {
 		this.rows = rows;
-		this.clumns = clumns;
+		this.columns = columns;
 		pieces = new Piece[rows][columns];
 	}
 
@@ -21,13 +21,18 @@ public class Board {
 	}
 
 	public int getClumns() {
-		return clumns;
+		return columns;
 	}
 
 	public void setClumns(int clumns) {
-		this.clumns = clumns;
+		this.columns = clumns;
 	}
 	
+	public Piece piece(int row, int column) {
+		return pieces[row][column];
+	}
 	
-	
+	public Piece piece(Position position) {
+		return pieces[position.getRow()][position.getClumn()];
+	}
 }
